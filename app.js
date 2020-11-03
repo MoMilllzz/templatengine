@@ -9,7 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
+let team= []
 function mainMenu (){
     const questions = [
         {
@@ -75,9 +75,20 @@ function addEngineer(){
     
     inquirer.prompt (questions)
     .then (function(response){
-
+const engineer=new Engineer (response.name, response.id, response.email, response.github)
+team.push(engineer)
+mainMenu()
     })
 }
+function createTeam(){
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+      }
+      fs.writeFileSync(outputPath, render(team), "utf-8");
+    }
+
+
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
