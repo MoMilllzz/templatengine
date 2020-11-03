@@ -24,10 +24,60 @@ function mainMenu (){
     
     inquirer.prompt (questions)
     .then (function(response){
-console.log (response) 
+const choice=response.title 
+if(choice==="Engineer"){
+addEngineer()
+}
+if(choice==="Intern"){
+    addIntern()
+    }
+if(choice==="Manager"){
+    addManager()
+    }
+if(choice==="Finished"){
+    createTeam()
+    }   
+
+
+
     })
 }
 mainMenu ()
+
+function addEngineer(){
+    const questions = [
+        {
+            type: "input",
+            name: "name",
+            message: "what is the engineers name?", 
+            
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "what is the engineers id?", 
+            
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "what is the engineers email?", 
+            
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "what is the engineers github", 
+            
+        },
+        
+    ]
+    
+    inquirer.prompt (questions)
+    .then (function(response){
+
+    })
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
