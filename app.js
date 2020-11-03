@@ -118,6 +118,49 @@ mainMenu()
     })
 }
 
+function addManager(){
+    const questions = [
+        {
+            type: "input",
+            name: "name",
+            message: "what is the managers name?", 
+            
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "what is the managers id?", 
+            
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "what is the managers email?", 
+            
+        },
+        {
+            type: "input",
+            name: "office number",
+            message: "what is the managers office number", 
+            
+        },
+        
+    ]
+    
+    inquirer.prompt (questions)
+    .then (function(response){
+const manager=new Manager (response.name, response.id, response.email, response.officenumber)
+team.push(manager)
+mainMenu()
+    })
+}
+
+
+
+
+
+
+
 
 
 
