@@ -80,6 +80,48 @@ team.push(engineer)
 mainMenu()
     })
 }
+
+function addIntern(){
+    const questions = [
+        {
+            type: "input",
+            name: "name",
+            message: "what is the interns name?", 
+            
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "what is the interns id?", 
+            
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "what is the interns email?", 
+            
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "what is the interns school", 
+            
+        },
+        
+    ]
+    
+    inquirer.prompt (questions)
+    .then (function(response){
+const intern=new Intern (response.name, response.id, response.email, response.school)
+team.push(intern)
+mainMenu()
+    })
+}
+
+
+
+
+
 function createTeam(){
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
